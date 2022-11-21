@@ -1,14 +1,26 @@
 {
-  "name": "peachui",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@zaifer/peachui",
+  "version": "0.1.1",
+  "author": "zaifer",
+  "description": "This is just a Daisyui wrapper for vue.",
+  "main": "dist/peachui.common.js",
+  "module": "dist/peachui.umd.min.js",
+  "files": [
+    "dist/*",
+    "types/*"
+  ],
+  "types": "./types/index.d.ts",
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "yarn build:lib && yarn build:style",
+    "build:lib": "vue-cli-service build --target lib --name peachui src/index.js",
+    "build:style": "postcss src/tailwind.css -o dist/styles.css"
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "daisyui": "^2.41.0",
     "vue": "^3.2.13"
   },
   "devDependencies": {
@@ -19,8 +31,11 @@
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
+    "autoprefixer": "^10.4.13",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
     "typescript": "~4.5.5"
   },
   "eslintConfig": {
@@ -43,5 +58,15 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "vue",
+    "tailwind",
+    "daisyui",
+    "components",
+    "peachui"
   ]
 }
