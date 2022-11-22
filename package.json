@@ -1,0 +1,56 @@
+{
+  "name": "@zaifer/peachui",
+  "version": "0.1.10",
+  "author": "zaifer",
+  "description": "This is just a Daisyui wrapper for vue.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/peachui.umd.js",
+  "module": "./dist/peachui.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/peachui.es.js",
+      "require": "./dist/peachui.cjs.js"
+    },
+    "./nuxt": {
+      "import": "./dist/peachui-nuxt.es.js",
+      "require": "./dist/peachui-nuxt.cjs.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "daisyui": "^2.41.0",
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "tailwindcss": "^3.2.4",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.3",
+    "vue-tsc": "^1.0.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "vue",
+    "tailwind",
+    "daisyui",
+    "components",
+    "peachui"
+  ]
+}
