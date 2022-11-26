@@ -1,6 +1,6 @@
 {
   "name": "@zaifer/peachui",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "author": "zaifer",
   "description": "This is just a Daisyui wrapper for vue.",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
+    "@nuxt/kit": "^3.0.0",
     "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",
