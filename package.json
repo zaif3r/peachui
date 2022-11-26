@@ -1,6 +1,6 @@
 {
   "name": "@zaifer/peachui",
-  "version": "0.1.14",
+  "version": "0.2.0",
   "author": "zaifer",
   "description": "This is just a Daisyui wrapper for vue.",
   "license": "MIT",
@@ -9,16 +9,13 @@
   "module": "./dist/peachui.es.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "exports": {
     ".": {
       "import": "./dist/peachui.es.js",
       "require": "./dist/peachui.cjs.js"
-    },
-    "./nuxt": {
-      "import": "./dist/peachui-nuxt.es.js",
-      "require": "./dist/peachui-nuxt.cjs.js"
     },
     "./style.css": "./dist/style.css"
   },
@@ -32,7 +29,6 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
-    "@nuxt/kit": "^3.0.0",
     "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",
