@@ -17,6 +17,10 @@
       "import": "./dist/peachui.es.js",
       "require": "./dist/peachui.cjs.js"
     },
+    "./nuxt": {
+      "import": "./dist/peachui-nuxt.es.js",
+      "require": "./dist/peachui-nuxt.cjs.js"
+    },
     "./style.css": "./dist/style.css"
   },
   "scripts": {
@@ -29,6 +33,7 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
+    "@nuxt/kit": "^3.0.0",
     "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",

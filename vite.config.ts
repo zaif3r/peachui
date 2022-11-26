@@ -30,13 +30,17 @@ export default defineConfig({
     cssCodeSplit: false,
     lib: {
       name: 'PeachUI',
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+        nuxt: resolve(__dirname, 'src/nuxt.ts'),
+      },
       fileName: (format, entryName) => {
-        return `peachui${entryName}.${format}.js`
+        const entry = entryName == "index"? "": `-${entryName}`
+        return `peachui${entry}.${format}.js`
       }
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', '@nuxt/kit'],
       output: {
         globals: {
           vue: 'Vue'
