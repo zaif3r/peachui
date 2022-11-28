@@ -5,6 +5,10 @@
   "description": "Vue component library for easy web development.",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaif3r/peachui.git"
+  },
   "main": "./dist/peachui.umd.js",
   "module": "./dist/peachui.es.js",
   "types": "./dist/index.d.ts",
