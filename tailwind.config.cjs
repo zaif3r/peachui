@@ -9,4 +9,12 @@ module.exports = {
   plugins: [
     require("daisyui")
   ],
+  safelist: [
+    {
+      pattern: /btn-+/
+    },
+    {
+      pattern: /badge-+/
+    },
+  ]
 }
