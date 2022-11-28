@@ -14,7 +14,11 @@ import { ButtonProps } from "@/types";
 
 interface Props extends ButtonProps {
     tag?: string;
+    active?: boolean;
+    disabled?: boolean;
     loading?: boolean;
+    noAnimation?: boolean;
+    glass?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
