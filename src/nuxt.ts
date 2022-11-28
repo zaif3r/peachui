@@ -3,7 +3,6 @@ import * as components from "./runtime/components";
 
 export * from "./types";
 export * from "./runtime/components";
-export * from "./runtime/composables";
 
 export default defineNuxtModule({
     meta: {

@@ -16,4 +16,3 @@ export default {
 
 export * from "./types";
 export * from "./runtime/components";
-export * from "./runtime/composables";
