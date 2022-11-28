@@ -1,6 +1,6 @@
 import { App } from "vue";
 import "./style.css";
-import * as components from "./components";
+import * as components from "./runtime/components";
 
 type ComponentName = keyof typeof components;
 
@@ -14,4 +14,6 @@ export default {
     },
 };
 
-export * from "./components";
+export * from "./types";
+export * from "./runtime/components";
+export * from "./runtime/composables";
