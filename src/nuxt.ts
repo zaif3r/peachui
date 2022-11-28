@@ -1,28 +1,31 @@
 import { defineNuxtModule, createResolver, addComponent } from "@nuxt/kit";
-import * as components from "./components";
+import * as components from "./runtime/components";
 
-type ComponentName = keyof typeof components;
-
-const componentNames = Object.keys(components) as ComponentName[];
+export * from "./types";
+export * from "./runtime/components";
+export * from "./runtime/composables";
 
 export default defineNuxtModule({
     meta: {
         name: "@zaifer/peachui",
         configKey: "peachui",
     },
-    setup(_opt, nuxt) {
-        nuxt.options.css.push(
-            createResolver(import.meta.url).resolve("style.css")
+    setup(opt, nuxt) {
+        const prefix = opt.prefix?.toUppercase() || "P";
+
+        const distResolver = createResolver(import.meta.url);
+        const srcResolver = createResolver(
+            import.meta.url.replace("dist", "src/runtime")
         );
 
-        const resolver = createResolver(import.meta.url.replace("dist", "src"));
-
+        const componentNames = Object.keys(components);
         for (const name of componentNames) {
-            const nameNormalized = name.replace("P", "").toLowerCase();
             addComponent({
-                name: name,
-                filePath: resolver.resolve("components", nameNormalized),
+                name: prefix + name,
+                filePath: srcResolver.resolve("components", name),
             });
         }
+
+        nuxt.options.css.push(distResolver.resolve("style.css"));
     },
 });
