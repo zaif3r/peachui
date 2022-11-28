@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  prefix: "p-",
   content: [
     "./src/**/*.{vue,ts}",
   ],
@@ -10,7 +9,4 @@ module.exports = {
   plugins: [
     require("daisyui")
   ],
-  corePlugins: {
-    preflight: false,
-  },
 }
