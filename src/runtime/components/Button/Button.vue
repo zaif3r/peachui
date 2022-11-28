@@ -4,7 +4,7 @@
             <slot name="icon" />
         </template>
         <span>
-            <slot> Button </slot>
+            <slot />
         </span>
     </component>
 </template>
