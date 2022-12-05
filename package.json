@@ -34,6 +34,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.13",
     "daisyui": "^2.41.0",
     "vue": "^3.2.41"
   },
