@@ -11,10 +11,12 @@ module.exports = {
   ],
   safelist: [
     {
-      pattern: /btn-+/
+      pattern: /btn-+/,
+      variants: ["responsive", "hover"],
     },
     {
-      pattern: /badge-+/
+      pattern: /badge-+/,
+      variants: ["responsive", "hover"],
     },
   ]
 }
