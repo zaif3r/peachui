@@ -12,6 +12,8 @@ export { default as Tab } from "./Tab";
 export { default as Tabs } from "./Tabs";
 export { default as Breadcrumb } from "./Breadcrumb";
 export { default as Breadcrumbs } from "./Breadcrumbs";
+export { default as Step } from "./Step";
+export { default as Steps } from "./Steps";
 
 export { default as Button } from "./Button";
 export { default as Badge } from "./Badge";
