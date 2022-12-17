@@ -32,7 +32,7 @@ const btnClass = computed(() => ({
     loading: props.loading,
 }));
 </script>
-<style scoped>
+<style>
 .btn {
     @apply gap-2;
 }

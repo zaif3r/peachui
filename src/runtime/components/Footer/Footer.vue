@@ -37,7 +37,7 @@ const footerClass = computed(() => ({
     "footer-center": props.centered,
 }));
 </script>
-<style scoped>
+<style>
 .footer-start {
     @apply gap-4 grid-flow-col items-center;
 }

@@ -33,7 +33,7 @@ withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>();
 </script>
-<style scoped>
+<style>
 .drawer {
     @apply w-full max-w-xs bg-base-100 fixed left-0 z-50 pointer-events-auto;
 }
