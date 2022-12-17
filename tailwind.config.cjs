@@ -18,5 +18,9 @@ module.exports = {
       pattern: /badge-+/,
       variants: ["responsive", "hover"],
     },
+    {
+      pattern: /step-+/,
+      variants: ["responsive", "hover"],
+    },
   ]
 }
