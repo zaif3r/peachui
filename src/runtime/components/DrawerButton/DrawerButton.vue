@@ -23,7 +23,9 @@ interface Props extends DrawerButtonProps {
     modelValue?: boolean;
 }
 
+interface Emits extends DrawerEmits {}
+
 defineProps<Props>();
 
-const emit = defineEmits<DrawerEmits>();
+const emit = defineEmits<Emits>();
 </script>
