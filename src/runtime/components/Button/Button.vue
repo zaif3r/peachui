@@ -1,43 +1,42 @@
 <template>
-    <component :is="tag" class="btn" :class="computedClasses">
-        <template v-if="!loading">
+    <component :is="tag" class="btn" :class="btnClass">
+        <template v-if="$slots.icon && !loading">
             <slot name="icon" />
         </template>
-        <span>
+        <div v-if="$slots.default" :class="{ 'btn-label': $slots.icon }">
             <slot />
-        </span>
+        </div>
     </component>
 </template>
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, DefineComponent } from "vue";
 import { ButtonProps } from "@/types";
 
 interface Props extends ButtonProps {
-    tag?: string;
+    tag?: string | DefineComponent;
     active?: boolean;
     disabled?: boolean;
     loading?: boolean;
-    noAnimation?: boolean;
-    glass?: boolean;
+    animation?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     tag: "button",
+    animation: true,
 });
 
-const computedClasses = computed(() => ({
+const btnClass = computed(() => ({
     "btn-active": props.active,
     "btn-disabled": props.disabled,
-    "no-animation": props.noAnimation,
+    "no-animation": !props.animation,
     loading: props.loading,
-    glass: props.glass,
 }));
 </script>
-<style>
+<style scoped>
 .btn {
     @apply gap-2;
 }
-.btn span {
-    @apply mt-1;
+.btn > .btn-label {
+    @apply mt-0.5;
 }
 </style>
