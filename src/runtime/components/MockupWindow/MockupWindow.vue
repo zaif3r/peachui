@@ -16,7 +16,7 @@ defineProps<{
     title?: string;
 }>();
 </script>
-<style scoped>
+<style>
 .mockup-window-title {
     @apply absolute top-0 left-0 h-12 pl-24 md:pl-28 flex items-center pt-1;
 }
