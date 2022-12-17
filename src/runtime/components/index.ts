@@ -12,3 +12,7 @@ export { default as Tabs } from "./Tabs";
 
 export { default as Button } from "./Button";
 export { default as Badge } from "./Badge";
+
+export { default as MockupCode } from "./MockupCode";
+export { default as MockupPhone } from "./MockupPhone";
+export { default as MockupWindow } from "./MockupWindow";
