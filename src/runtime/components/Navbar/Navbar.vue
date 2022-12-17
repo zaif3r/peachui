@@ -4,10 +4,10 @@
             <slot name="start" />
             <slot />
         </div>
-        <div class="navbar-center gap-1">
+        <div v-if="$slots.center" class="navbar-center gap-1">
             <slot name="center" />
         </div>
-        <div class="navbar-end gap-1">
+        <div v-if="$slots.end" class="navbar-end gap-1">
             <slot name="end" />
         </div>
     </nav>
