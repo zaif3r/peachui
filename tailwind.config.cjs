@@ -15,6 +15,10 @@ module.exports = {
       variants: ["responsive", "hover"],
     },
     {
+      pattern: /border-+/,
+      variants: ["responsive", "hover"],
+    },
+    {
       pattern: /btn-+/,
       variants: ["responsive", "hover"],
     },
