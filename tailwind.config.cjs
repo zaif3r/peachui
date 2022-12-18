@@ -11,6 +11,10 @@ module.exports = {
   ],
   safelist: [
     {
+      pattern: /bg-+/,
+      variants: ["responsive", "hover"],
+    },
+    {
       pattern: /btn-+/,
       variants: ["responsive", "hover"],
     },
