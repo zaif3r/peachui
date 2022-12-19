@@ -1,6 +1,6 @@
 {
   "name": "@zaifer/peachui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "zaifer",
   "description": "Vue component library for easy web development.",
   "license": "MIT",
@@ -13,7 +13,8 @@
   "module": "./dist/peachui.es.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src/runtime"
   ],
   "exports": {
     ".": {
