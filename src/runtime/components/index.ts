@@ -40,7 +40,7 @@ export { default as MockupCode } from "./MockupCode";
 export { default as MockupPhone } from "./MockupPhone";
 export { default as MockupWindow } from "./MockupWindow";
 
-export { default as AOS } from "./AOS";
+export { default as Aos } from "./Aos";
 export { default as Swiper } from "./Swiper";
 
 export { default as InputText } from "./InputText";
