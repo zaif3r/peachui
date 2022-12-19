@@ -15,6 +15,7 @@ export { default as Breadcrumbs } from "./Breadcrumbs";
 export { default as Step } from "./Step";
 export { default as Steps } from "./Steps";
 
+export { default as Link } from "./Link";
 export { default as Button } from "./Button";
 export { default as Badge } from "./Badge";
 
