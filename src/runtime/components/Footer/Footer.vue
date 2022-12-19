@@ -11,7 +11,7 @@
         </footer>
         <footer
             v-if="$slots.bottom || $slots.bottomStart || $slots.bottomEnd"
-            class="footer footer-bottom"
+            class="footer footer-bottom border-base-300"
         >
             <div v-if="$slots.bottomStart" class="footer-start">
                 <slot name="bottomStart" />
@@ -45,6 +45,6 @@ const footerClass = computed(() => ({
     @apply gap-4 grid-flow-col md:place-self-center md:justify-self-end;
 }
 .footer-bottom {
-    @apply px-10 py-4 border-t border-base-300;
+    @apply px-10 py-4 border-t;
 }
 </style>

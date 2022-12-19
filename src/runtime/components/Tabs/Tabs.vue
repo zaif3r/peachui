@@ -3,7 +3,7 @@
         <nav class="tabs" :class="{ 'tabs-boxed': boxed }">
             <slot />
         </nav>
-        <div v-if="$slots.content" class="tabs-content">
+        <div v-if="$slots.content" class="tabs-content rounded-box bg-base-100">
             <slot name="content" />
         </div>
     </div>
@@ -27,6 +27,6 @@ provide<Props>("tabs", {
 </script>
 <style>
 .tabs-content {
-    @apply rounded-box bg-base-100 p-4;
+    @apply p-4;
 }
 </style>
