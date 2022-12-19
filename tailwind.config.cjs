@@ -11,24 +11,12 @@ module.exports = {
   ],
   safelist: [
     {
-      pattern: /bg-+/,
-      variants: ["responsive", "hover"],
+      pattern: /(primary|secondary|accent|neutral|100|200|300|info|success|warning|error|focus|content)$/,
+      variants: ["hover"],
     },
     {
-      pattern: /border-+/,
-      variants: ["responsive", "hover"],
-    },
-    {
-      pattern: /btn-+/,
-      variants: ["responsive", "hover"],
-    },
-    {
-      pattern: /badge-+/,
-      variants: ["responsive", "hover"],
-    },
-    {
-      pattern: /step-+/,
-      variants: ["responsive", "hover"],
+      pattern: /(xxs|xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl)$/,
+      variants: ["responsive"],
     },
   ]
 }
