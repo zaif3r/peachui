@@ -4,11 +4,11 @@
     </component>
 </template>
 <script setup lang="ts">
-import { inject, computed, DefineComponent } from "vue";
-import { TabProps, TabsProps } from "@/types";
+import { inject, computed } from "vue";
+import type { TabProps, TabsProps } from "@/types";
 
 interface Props extends TabProps {
-    tag?: string | DefineComponent;
+    tag?: string | Object;
     active?: boolean;
     disabled?: boolean;
 }

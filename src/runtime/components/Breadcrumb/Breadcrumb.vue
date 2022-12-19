@@ -6,10 +6,8 @@
     </li>
 </template>
 <script setup lang="ts">
-import { DefineComponent } from "vue";
-
 interface Props {
-    tag?: string | DefineComponent;
+    tag?: string | Object;
 }
 
 withDefaults(defineProps<Props>(), {
