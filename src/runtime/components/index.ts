@@ -41,3 +41,4 @@ export { default as MockupPhone } from "./MockupPhone";
 export { default as MockupWindow } from "./MockupWindow";
 
 export { default as AOS } from "./AOS";
+export { default as Swiper } from "./Swiper";

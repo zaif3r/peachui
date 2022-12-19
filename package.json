@@ -37,6 +37,7 @@
     "@heroicons/vue": "^2.0.13",
     "@vueuse/core": "^9.6.0",
     "daisyui": "^2.41.0",
+    "swiper": "^8.4.5",
     "vue": "^3.2.41"
   },
   "devDependencies": {
