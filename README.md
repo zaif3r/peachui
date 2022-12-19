@@ -10,6 +10,8 @@ Vue component library for easy web development.
 -   [Nuxt](https://nuxtjs.org/) module
 -   [TailwindCSS](https://tailwindcss.com/) utility classes
 -   [DaisyUI](https://daisyui.com/) CSS components
+-   [Heroicons](https://heroicons.dev) svg icons
+-   Animate on scroll
 
 ## Install
 
@@ -21,8 +23,6 @@ npm i @zaifer/peachui
 yarn add @zaifer/peachui
 ```
 
-## Use
-
 ### Vue plugin
 
 ```js
@@ -32,7 +32,7 @@ import PeachUI from "@zaifer/peachui";
 Vue.use(PeachUI);
 ```
 
-## Nuxt module
+### Nuxt module
 
 ```js
 // nuxt.config.js
@@ -41,7 +41,9 @@ export default defineNuxtConfig({
 });
 ```
 
-## Local component
+## Use
+
+### Local component
 
 ```vue
 <script setup>
@@ -49,6 +51,6 @@ import { PButton } from "@zaifer/peachui";
 </script>
 
 <template>
-    <PButton> Peach button </PButton>
+    <p-button class="btn-primary"> Peach Button </p-button>
 </template>
 ```
