@@ -4,19 +4,20 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { provide } from "vue";
-import { FormProps, FormValidation } from "@/types";
+import { FormProps, FormInputModel } from "@/types";
 
 interface Props extends FormProps {
-    action: () => void | Promise<void>;
-    validations?: FormValidation[];
+    error?: string;
+    loading?: boolean;
+    inputs?: {
+        [key: string]: FormInputModel<any>;
+    };
+    action?: () => Promise<void>;
 }
 
-const props = defineProps<Props>();
-
-provide<Props>("form", {
-    action: props.action,
-    validations: props.validations,
+withDefaults(defineProps<Props>(), {
+    loading: false,
+    inputs: () => ({}),
 });
 </script>
 <style>

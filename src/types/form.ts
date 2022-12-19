@@ -1,14 +1,33 @@
+import { InputModel } from "./input";
+import { ButtonProps } from "./button";
+
 export interface FormProps {
-    action: () => void | Promise<void>;
-    validations?: FormValidation[];
+    error?: string;
+    loading?: boolean;
+    inputs?: {
+        [key: string]: FormInputModel<any>;
+    };
+    action?: () => Promise<void>;
 }
 
-export interface FormValidation<T = any> {
-    value?: boolean;
-    validator?:
-        | "not-empty"
-        | "email"
-        | "password"
-        | "password-confirm"
-        | ((input: T) => boolean);
+export interface FormButtonProps extends ButtonProps {
+    form: FormProps;
 }
+
+export interface FormInputModel<T> extends InputModel<T> {
+    value?: T;
+    valid?: boolean | null;
+    validator?: FormInputValidator<T>;
+    error?: string;
+}
+
+export interface FormInputText extends FormInputModel<string> {}
+
+export interface FormInputCheckbox extends FormInputModel<boolean> {}
+
+export type FormInputValidator<T> =
+    | "required"
+    | "email"
+    | "password"
+    | "password-confirm"
+    | ((value: T) => boolean);
