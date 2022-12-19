@@ -7,12 +7,17 @@
 import { computed, provide } from "vue";
 import { MenuProps } from "@/types";
 
-const props = withDefaults(defineProps<MenuProps>(), {
+interface Props extends MenuProps {
+    rounded?: boolean;
+    bordered?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
     rounded: false,
     bordered: false,
 });
 
-provide<MenuProps>("menu", {
+provide<Props>("menu", {
     bordered: props.bordered,
 });
 
