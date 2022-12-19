@@ -24,6 +24,11 @@ export { default as Badge } from "./Badge";
 export { default as Card } from "./Card";
 export { default as Avatar } from "./Avatar";
 export { default as Indicator } from "./Indicator";
+export { default as Stat } from "./Stat";
+export { default as Stats } from "./Stats";
+export { default as StatTitle } from "./StatTitle";
+export { default as StatValue } from "./StatValue";
+export { default as StatDesc } from "./StatDesc";
 
 export { default as Form } from "./Form";
 export { default as FormButton } from "./FormButton";
