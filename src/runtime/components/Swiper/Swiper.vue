@@ -49,8 +49,8 @@ interface Props {
     slidesPerView?: number | "auto";
     spaceBetween?: number;
     navigation?: boolean;
-    pagination?: boolean | PaginationOptions;
-    scrollbar?: boolean | ScrollbarOptions;
+    pagination?: boolean | PaginationOptions | Object;
+    scrollbar?: boolean | ScrollbarOptions | Object;
     loop?: boolean;
     grabCursor?: boolean;
     items?: any[];
