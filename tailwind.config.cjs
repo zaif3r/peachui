@@ -11,7 +11,7 @@ module.exports = {
   ],
   safelist: [
     {
-      pattern: /(primary|secondary|accent|neutral|100|200|300|info|success|warning|error|focus|content)$/,
+      pattern: /(primary|secondary|accent|neutral|ghost|100|200|300|info|success|warning|error|focus|content)$/,
       variants: ["hover"],
     },
     {
