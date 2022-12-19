@@ -39,3 +39,5 @@ export { default as Label } from "./Label";
 export { default as MockupCode } from "./MockupCode";
 export { default as MockupPhone } from "./MockupPhone";
 export { default as MockupWindow } from "./MockupWindow";
+
+export { default as AOS } from "./AOS";
