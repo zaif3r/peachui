@@ -26,5 +26,6 @@ export default defineNuxtModule({
         }
 
         nuxt.options.css.push(distResolver.resolve("style.css"));
+        nuxt.options.build.transpile.push("@heroicons/vue");
     },
 });
