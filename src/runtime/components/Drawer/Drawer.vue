@@ -8,7 +8,11 @@
             />
         </Transition>
         <Transition :name="transtion">
-            <div v-if="modelValue" class="drawer group">
+            <div
+                v-if="modelValue"
+                v-bind="$attrs"
+                class="drawer group bg-base-100"
+            >
                 <div class="p-4">
                     <slot />
                 </div>
@@ -33,9 +37,14 @@ withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>();
 </script>
+<script lang="ts">
+export default {
+    inheritAttrs: false,
+};
+</script>
 <style>
 .drawer {
-    @apply w-full max-w-xs bg-base-100 fixed left-0 z-50 pointer-events-auto;
+    @apply w-full max-w-xs fixed left-0 z-50 pointer-events-auto;
 }
 .drawer-container {
     @apply absolute inset-0 pointer-events-none;
