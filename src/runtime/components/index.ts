@@ -29,6 +29,8 @@ export { default as Stats } from "./Stats";
 export { default as StatTitle } from "./StatTitle";
 export { default as StatValue } from "./StatValue";
 export { default as StatDesc } from "./StatDesc";
+export { default as Progress } from "./Progress";
+export { default as ProgressRadial } from "./ProgressRadial";
 
 export { default as Form } from "./Form";
 export { default as FormButton } from "./FormButton";
