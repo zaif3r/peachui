@@ -21,6 +21,7 @@ export { default as Swap } from "./Swap";
 export { default as Badge } from "./Badge";
 
 export { default as Form } from "./Form";
+export { default as FormButton } from "./FormButton";
 export { default as Label } from "./Label";
 
 export { default as MockupCode } from "./MockupCode";
