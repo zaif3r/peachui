@@ -9,11 +9,11 @@
     </component>
 </template>
 <script setup lang="ts">
-import { computed, DefineComponent } from "vue";
+import { computed } from "vue";
 import { ButtonProps } from "@/types";
 
 interface Props extends ButtonProps {
-    tag?: string | DefineComponent;
+    tag?: string | Object;
     active?: boolean;
     disabled?: boolean;
     loading?: boolean;
