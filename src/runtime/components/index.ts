@@ -42,3 +42,7 @@ export { default as MockupWindow } from "./MockupWindow";
 
 export { default as AOS } from "./AOS";
 export { default as Swiper } from "./Swiper";
+
+export { default as InputText } from "./InputText";
+export { default as InputTextarea } from "./InputTextarea";
+export { default as InputCheckbox } from "./InputCheckbox";
