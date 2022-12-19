@@ -1,18 +1,23 @@
 <template>
     <li :class="itemActive">
-        <a :class="linkActive">
+        <component :is="tag" v-bind="$attrs" :class="linkActive">
             <slot />
-        </a>
+        </component>
     </li>
 </template>
 <script setup lang="ts">
 import { inject, computed } from "vue";
 import { MenuProps } from "@/types";
 
-const props =
-    defineProps<{
-        active?: boolean;
-    }>();
+interface Props {
+    tag?: string | Object;
+    active?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    tag: "a",
+    active: false,
+});
 
 const menu = inject<MenuProps>("menu");
 
@@ -23,4 +28,9 @@ const itemActive = computed(() => ({
 const linkActive = computed(() => ({
     active: !menu?.bordered && props.active,
 }));
+</script>
+<script lang="ts">
+export default {
+    inheritAttrs: false,
+};
 </script>
