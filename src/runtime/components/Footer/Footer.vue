@@ -3,8 +3,8 @@
         <footer class="footer p-10" :class="footerClass">
             <div class="footer-start">
                 <slot name="start" />
-                <slot />
             </div>
+            <slot />
             <div v-if="$slots.end" class="footer-end">
                 <slot name="end" />
             </div>
