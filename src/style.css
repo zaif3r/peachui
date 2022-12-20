@@ -6,11 +6,6 @@ html {
     scroll-behavior: smooth;
 }
 
-html,
-body {
-    overflow-x: hidden;
-}
-
 @layer base {
     h1 {
         @apply text-2xl font-bold;
