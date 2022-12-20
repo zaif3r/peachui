@@ -14,15 +14,28 @@ export interface InputEmits<T = any> {
 
 export type InputTextType = "text" | "email" | "password";
 
+export interface InputTextModel extends InputModel<string> {}
+
 export interface InputTextProps extends InputProps<string> {
     type?: InputTextType;
+    modelValue?: InputTextModel;
     placeholder?: string;
     bordered?: boolean;
 }
 
 export type InputCheckboxType = "checkbox" | "toggle";
 
+export interface InputCheckboxModel extends InputModel<boolean> {}
+
 export interface InputCheckboxProps extends InputProps<boolean> {
     type?: InputCheckboxType;
+    modelValue?: InputCheckboxModel;
+    bordered?: boolean;
+}
+
+export interface InputFileModel extends InputModel<File[]> {}
+
+export interface InputFileProps extends InputProps<File[]> {
+    modelValue?: InputFileModel;
     bordered?: boolean;
 }

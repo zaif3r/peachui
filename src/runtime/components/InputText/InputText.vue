@@ -14,14 +14,14 @@ import type {
     InputEmits,
     InputTextProps,
     InputTextType,
-    FormInputText,
+    InputTextModel,
 } from "@/types";
 
 interface Emits extends InputEmits<string> {}
 
 interface Props extends InputTextProps {
     type?: InputTextType;
-    modelValue?: FormInputText;
+    modelValue?: InputTextModel;
     placeholder?: string;
     bordered?: boolean;
     disabled?: boolean;

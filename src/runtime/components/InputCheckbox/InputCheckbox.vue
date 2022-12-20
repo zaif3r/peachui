@@ -12,14 +12,14 @@ import type {
     InputEmits,
     InputCheckboxProps,
     InputCheckboxType,
-    FormInputCheckbox,
+    InputCheckboxModel,
 } from "@/types";
 
 interface Emits extends InputEmits<boolean> {}
 
 interface Props extends InputCheckboxProps {
     type?: InputCheckboxType;
-    modelValue?: FormInputCheckbox;
+    modelValue?: InputCheckboxModel;
     bordered?: boolean;
     disabled?: boolean;
 }

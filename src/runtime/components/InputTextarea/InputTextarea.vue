@@ -10,7 +10,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import type { InputTextProps, InputEmits, FormInputText } from "@/types";
+import type { InputEmits, InputTextProps, InputTextModel } from "@/types";
 
 interface Emits extends InputEmits<string> {}
 
@@ -18,7 +18,7 @@ interface Props extends InputTextProps {
     placeholder?: string;
     bordered?: boolean;
     disabled?: boolean;
-    modelValue?: FormInputText;
+    modelValue?: InputTextModel;
 }
 
 const emit = defineEmits<Emits>();

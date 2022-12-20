@@ -21,10 +21,6 @@ export interface FormInputModel<T> extends InputModel<T> {
     error?: string;
 }
 
-export interface FormInputText extends FormInputModel<string> {}
-
-export interface FormInputCheckbox extends FormInputModel<boolean> {}
-
 export type FormInputValidator<T> =
     | "required"
     | "email"
