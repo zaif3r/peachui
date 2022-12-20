@@ -35,6 +35,7 @@ export { default as StatDesc } from "./StatDesc";
 export { default as Progress } from "./Progress";
 export { default as ProgressRadial } from "./ProgressRadial";
 export { default as Alert } from "./Alert";
+export { default as Tooltip } from "./Tooltip";
 
 export { default as Form } from "./Form";
 export { default as FormButton } from "./FormButton";
