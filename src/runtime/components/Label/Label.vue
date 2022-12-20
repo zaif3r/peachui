@@ -1,5 +1,5 @@
 <template>
-    <label class="label">
+    <label :for="props.for" class="label">
         <span class="label-text" v-bind="$attrs">
             <slot name="text"> {{ text }} </slot>
         </span>
@@ -12,9 +12,10 @@
     </label>
 </template>
 <script lang="ts" setup>
-defineProps<{
+const props = defineProps<{
     text?: string;
     alt?: string;
+    for?: string;
 }>();
 </script>
 <script lang="ts">
