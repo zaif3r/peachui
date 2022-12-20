@@ -1,7 +1,7 @@
 <template>
     <div class="dropdown" :class="dropdownClass">
         <label tabindex="0">
-            <stot />
+            <slot />
         </label>
         <div tabindex="0" class="dropdown-content">
             <slot name="content" />
