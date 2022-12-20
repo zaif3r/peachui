@@ -24,12 +24,14 @@ const emit = defineEmits<Emits>();
 
 const props = withDefaults(defineProps<Props>(), {
     modelValue: () => ({
+        valid: null,
         value: [],
     }),
 });
 
 const inputFileClass = computed(() => ({
     "file-input-bordered": props.bordered,
+    "file-input-error": props.modelValue.valid != null && !props.modelValue.valid,
 }));
 
 function onInputFile(event: any) {
