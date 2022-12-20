@@ -27,7 +27,7 @@ withDefaults(defineProps<Props>(), {
 .form-control > div,
 .form-control .input,
 .form-control .textarea,
-.form-control .input-file {
+.form-control .file-input {
     @apply w-full;
 }
 </style>
