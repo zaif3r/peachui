@@ -1,5 +1,5 @@
 <template>
-    <div class="form-control gap-2">
+    <div class="form-control gap-4">
         <slot />
     </div>
 </template>
@@ -29,8 +29,5 @@ withDefaults(defineProps<Props>(), {
 .form-control .textarea,
 .form-control .input-file {
     @apply w-full;
-}
-.form-control > .btn:last-child {
-    @apply mt-4;
 }
 </style>
