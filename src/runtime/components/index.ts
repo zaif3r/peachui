@@ -22,6 +22,7 @@ export { default as Collapse } from "./Collapse";
 export { default as Menu } from "./Menu";
 export { default as MenuTitle } from "./MenuTitle";
 export { default as MenuItem } from "./MenuItem";
+export { default as Dropdown } from "./Dropdown";
 
 export { default as Badge } from "./Badge";
 export { default as Card } from "./Card";
