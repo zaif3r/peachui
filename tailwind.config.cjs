@@ -19,7 +19,7 @@ module.exports = {
       variants: ["responsive"],
     },
     {
-      pattern: /(top|bottom|left|right)$/,
+      pattern: /(top|bottom|left|right|start|end|center|middle)$/,
       variants: ["responsive"],
     }
   ]
