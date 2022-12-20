@@ -1,5 +1,5 @@
 <template>
-    <div class="form-control">
+    <div class="form-control gap-2">
         <slot />
     </div>
 </template>
@@ -22,11 +22,12 @@ withDefaults(defineProps<Props>(), {
 </script>
 <style>
 .form-control {
-    @apply w-full gap-2;
+    @apply w-full;
 }
 .form-control > div,
 .form-control .input,
-.form-control .textarea {
+.form-control .textarea,
+.form-control .input-file {
     @apply w-full;
 }
 .form-control > .btn:last-child {
