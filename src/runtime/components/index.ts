@@ -52,5 +52,6 @@ export { default as Swiper } from "./Swiper";
 export { default as InputText } from "./InputText";
 export { default as InputTextarea } from "./InputTextarea";
 export { default as InputCheckbox } from "./InputCheckbox";
+export { default as InputRadio } from "./InputRadio";
 export { default as InputFile } from "./InputFile";
 

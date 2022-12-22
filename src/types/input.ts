@@ -33,6 +33,12 @@ export interface InputCheckboxProps extends InputProps<boolean> {
     bordered?: boolean;
 }
 
+export interface InputRadioModel extends InputModel<boolean> {}
+
+export interface InputRadioProps extends InputProps<boolean> {
+    modelValue?: InputRadioModel;
+}
+
 export interface InputFileModel extends InputModel<File[]> {}
 
 export interface InputFileProps extends InputProps<File[]> {
