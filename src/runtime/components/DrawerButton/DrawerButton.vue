@@ -1,5 +1,5 @@
 <template>
-    <Button tag="label" class="btn-square btn-ghost">
+    <Button class="btn-square btn-ghost">
         <Swap
             :modelValue="modelValue"
             @update:modelValue="emit('update:modelValue', $event)"
