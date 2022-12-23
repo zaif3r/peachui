@@ -37,6 +37,7 @@ export { default as Progress } from "./Progress";
 export { default as ProgressRadial } from "./ProgressRadial";
 export { default as Alert } from "./Alert";
 export { default as Tooltip } from "./Tooltip";
+export { default as Rating } from "./Rating";
 
 export { default as Form } from "./Form";
 export { default as FormButton } from "./FormButton";
@@ -55,3 +56,5 @@ export { default as InputCheckbox } from "./InputCheckbox";
 export { default as InputRadio } from "./InputRadio";
 export { default as InputFile } from "./InputFile";
 
+export { default as Modal } from "./Modal";
+export { default as ModalButton } from "./ModalButton";
