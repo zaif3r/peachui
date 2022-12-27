@@ -23,8 +23,3 @@ export default {
     inheritAttrs: false,
 };
 </script>
-<style>
-.label {
-    @apply w-full;
-}
-</style>
