@@ -55,6 +55,7 @@ export { default as InputTextarea } from "./InputTextarea";
 export { default as InputCheckbox } from "./InputCheckbox";
 export { default as InputRadio } from "./InputRadio";
 export { default as InputFile } from "./InputFile";
+export { default as Select } from "./Select";
 
 export { default as Modal } from "./Modal";
 export { default as ModalButton } from "./ModalButton";
