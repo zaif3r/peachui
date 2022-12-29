@@ -1,11 +1,11 @@
 <template>
     <select class="select" :class="selectClass">
-        <option v-if="placeholder" :selected="!modelValue" disabled>
+        <option v-if="placeholder" :selected="!modelValue || !modelValue.value" disabled>
             {{ placeholder }}
         </option>
         <option
             :key="option.value"
-            :selected="modelValue?.value?.value === option.value"
+            :selected="modelValue?.value?.value == option.value"
             v-for="option in options"
             @click="selectOption(option)"
         >
