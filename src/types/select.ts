@@ -1,8 +1,8 @@
 import { InputProps, InputModel } from "./input";
 
-export interface InputSelectModel extends InputModel<SelectOption> {}
+export interface InputSelectModel extends InputModel<string> {}
 
-export interface InputSelectProps extends InputProps<SelectOption> {
+export interface InputSelectProps extends InputProps<string> {
     modelValue?: InputSelectModel;
     bordered?: boolean;
     options?: SelectOption[];

@@ -1,13 +1,13 @@
 <template>
-    <select class="select" :class="selectClass">
+    <select class="select" :class="selectClass" @input="onInputSelect">
         <option v-if="placeholder" :selected="!modelValue || !modelValue.value" disabled>
             {{ placeholder }}
         </option>
         <option
             :key="option.value"
-            :selected="modelValue?.value?.value == option.value"
+            :value="option.value"
+            :selected="modelValue?.value == option.value"
             v-for="option in options"
-            @click="selectOption(option)"
         >
             {{ option.label }}
         </option>
@@ -22,10 +22,10 @@ import {
 } from "@/types";
 import { computed } from "vue";
 
-interface Emits extends InputEmits<SelectOption> {}
+interface Emits extends InputEmits<string> {}
 
 interface Props extends InputSelectProps {
-    modelValue?: InputModel<SelectOption>;
+    modelValue?: InputModel<string>;
     options?: SelectOption[];
     placeholder?: string;
     disabled?: boolean;
@@ -45,10 +45,10 @@ const selectClass = computed(() => ({
     "select-error": props.modelValue?.valid != null && !props.modelValue.valid,
 }));
 
-function selectOption(option: SelectOption) {
+function onInputSelect(event: any) {
     emit("update:modelValue", {
         ...props.modelValue,
-        value: option,
+        value: event.target.value,
     });
 }
 </script>
