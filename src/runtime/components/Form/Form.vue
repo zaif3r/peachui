@@ -28,7 +28,8 @@ withDefaults(defineProps<Props>(), {
 .form-control .input,
 .form-control .textarea,
 .form-control .file-input,
-.form-control .label {
+.form-control .label,
+.form-control .select {
     @apply w-full;
 }
 </style>
