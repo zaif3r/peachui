@@ -1,7 +1,7 @@
 <template>
     <textarea
         class="textarea"
-        :value="modelValue.value"
+        :value="modelValue"
         :class="textareaClass"
         v-bind="{ placeholder, disabled }"
         @focus="onFocus"
@@ -10,7 +10,8 @@
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import type { InputEmits, InputTextProps, InputTextModel } from "@/types";
+import type { InputEmits, InputTextProps, InputValidation } from "@/types";
+import { inputHelpers } from "@/runtime/utils/input";
 
 interface Emits extends InputEmits<string> {}
 
@@ -18,34 +19,20 @@ interface Props extends InputTextProps {
     placeholder?: string;
     bordered?: boolean;
     disabled?: boolean;
-    modelValue?: InputTextModel;
+    modelValue?: string;
+    validation?: InputValidation<string>
 }
 
 const emit = defineEmits<Emits>();
 
 const props = withDefaults(defineProps<Props>(), {
-    modelValue: () => ({
-        valid: null,
-        value: "",
-    }),
+    modelValue: "",
 });
 
-function onInput(event: any) {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        value: event.target.value,
-    });
-}
-
-function onFocus() {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        valid: null,
-    });
-}
+const { onInput, onFocus, isValid } = inputHelpers(props, emit);
 
 const textareaClass = computed(() => ({
     "textarea-bordered": props.bordered,
-    "textarea-error": props.modelValue.valid != null && !props.modelValue.valid,
+    "textarea-error": !isValid.value,
 }));
 </script>

@@ -2,33 +2,28 @@
     <input
         type="radio"
         class="radio"
-        :checked="modelValue.value"
+        :checked="modelValue"
         :disabled="disabled"
         @input="onChecked"
     />
 </template>
 <script setup lang="ts">
-import type { InputEmits, InputRadioProps, InputRadioModel } from "@/types";
+import type { InputEmits, InputRadioProps } from "@/types";
 
 interface Emits extends InputEmits<boolean> {}
 
 interface Props extends InputRadioProps {
-    modelValue?: InputRadioModel;
+    modelValue?: boolean;
     disabled?: boolean;
 }
 
 const emit = defineEmits<Emits>();
 
-const props = withDefaults(defineProps<Props>(), {
-    modelValue: () => ({
-        value: false,
-    }),
+withDefaults(defineProps<Props>(), {
+    modelValue: false,
 });
 
 function onChecked(event: any) {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        value: event.target.checked,
-    });
+    emit("update:modelValue", event.target.checked);
 }
 </script>

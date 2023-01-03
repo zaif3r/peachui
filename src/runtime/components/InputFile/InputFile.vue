@@ -3,19 +3,20 @@
         type="file"
         class="file-input"
         :class="inputFileClass"
-        :files="modelValue.value"
         :disabled="disabled"
         @input="onInputFile"
     />
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import type { InputEmits, InputFileProps, InputFileModel } from "@/types";
+import type { InputEmits, InputFileProps, InputFileType } from "@/types";
+import { inputHelpers } from "@/runtime/utils/input";
 
-interface Emits extends InputEmits<File[]> {}
+interface Emits extends InputEmits<File | FileList | string> {}
 
 interface Props extends InputFileProps {
-    modelValue?: InputFileModel;
+    type?: InputFileType;
+    modelValue?: File | FileList | string;
     bordered?: boolean;
     disabled?: boolean;
 }
@@ -23,21 +24,28 @@ interface Props extends InputFileProps {
 const emit = defineEmits<Emits>();
 
 const props = withDefaults(defineProps<Props>(), {
-    modelValue: () => ({
-        valid: null,
-        value: [],
-    }),
+    type: "file",
 });
+
+const { isValid } = inputHelpers(props, emit);
 
 const inputFileClass = computed(() => ({
     "file-input-bordered": props.bordered,
-    "file-input-error": props.modelValue.valid != null && !props.modelValue.valid,
+    "file-input-error": !isValid.value,
 }));
 
 function onInputFile(event: any) {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        value: event.target.files,
-    });
+    if (props.type == "file") {
+        return emit("update:modelValue", event.target.files[0]);
+    } else if (props.type == "fileList") {
+        return emit("update:modelValue", event.target.files);
+    } else if (props.type == "dataUrl") {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            emit("update:modelValue", e.target?.result as string);
+        };
+
+        return reader.readAsDataURL(event.target.files[0]);
+    }
 }
 </script>

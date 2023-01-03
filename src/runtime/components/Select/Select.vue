@@ -1,12 +1,12 @@
 <template>
-    <select class="select" :class="selectClass" @input="onInputSelect">
-        <option v-if="placeholder" :selected="!modelValue || !modelValue.value" disabled>
+    <select class="select" :class="selectClass" @input="onInput">
+        <option v-if="placeholder" :selected="!modelValue" disabled>
             {{ placeholder }}
         </option>
         <option
             :key="option.value"
             :value="option.value"
-            :selected="modelValue?.value == option.value"
+            :selected="modelValue == option.value"
             v-for="option in options"
         >
             {{ option.label }}
@@ -17,15 +17,15 @@
 import {
     InputSelectProps,
     InputEmits,
-    InputModel,
     SelectOption,
 } from "@/types";
 import { computed } from "vue";
+import { inputHelpers } from "@/runtime/utils/input";
 
 interface Emits extends InputEmits<string> {}
 
 interface Props extends InputSelectProps {
-    modelValue?: InputModel<string>;
+    modelValue?: string;
     options?: SelectOption[];
     placeholder?: string;
     disabled?: boolean;
@@ -36,19 +36,13 @@ const emit = defineEmits<Emits>();
 
 const props = withDefaults(defineProps<Props>(), {
     placeholder: "Select an option",
-    disabled: false,
     options: () => [],
 });
 
+const { onInput, isValid } = inputHelpers(props, emit);
+
 const selectClass = computed(() => ({
     "select-bordered": props.bordered,
-    "select-error": props.modelValue?.valid != null && !props.modelValue.valid,
+    "select-error": !isValid,
 }));
-
-function onInputSelect(event: any) {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        value: event.target.value,
-    });
-}
 </script>

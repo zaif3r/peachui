@@ -2,7 +2,7 @@
     <input
         type="checkbox"
         :class="type"
-        :checked="modelValue.value"
+        :checked="modelValue"
         :disabled="disabled"
         @input="onChecked"
     />
@@ -12,31 +12,25 @@ import type {
     InputEmits,
     InputCheckboxProps,
     InputCheckboxType,
-    InputCheckboxModel,
 } from "@/types";
 
 interface Emits extends InputEmits<boolean> {}
 
 interface Props extends InputCheckboxProps {
     type?: InputCheckboxType;
-    modelValue?: InputCheckboxModel;
+    modelValue?: boolean;
     bordered?: boolean;
     disabled?: boolean;
 }
 
 const emit = defineEmits<Emits>();
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
     type: "checkbox",
-    modelValue: () => ({
-        value: false,
-    }),
+    modelValue: false,
 });
 
 function onChecked(event: any) {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        value: event.target.checked,
-    });
+    emit("update:modelValue", event.target.checked);
 }
 </script>

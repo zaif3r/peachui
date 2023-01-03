@@ -1,29 +1,20 @@
-import { InputModel } from "./input";
 import { ButtonProps } from "./button";
+import { InputValidation } from "./input";
 
 export interface FormProps {
-    error?: string;
     loading?: boolean;
-    inputs?: {
-        [key: string]: FormInputModel<any>;
-    };
+    error?: string;
     action?: () => Promise<void>;
+    inputs?: {
+        [key: string]: FormInput<any>;
+    };
 }
 
 export interface FormButtonProps extends ButtonProps {
     form: FormProps;
 }
 
-export interface FormInputModel<T> extends InputModel<T> {
+export interface FormInput<T> {
     value?: T;
-    valid?: boolean | null;
-    validator?: FormInputValidator<T>;
-    error?: string;
+    validation?: InputValidation<T>;
 }
-
-export type FormInputValidator<T> =
-    | "required"
-    | "email"
-    | "password"
-    | "password-confirm"
-    | ((value: T) => boolean);

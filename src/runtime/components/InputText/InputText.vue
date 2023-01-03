@@ -2,7 +2,7 @@
     <input
         class="input"
         :class="inputClass"
-        :value="modelValue.value"
+        :value="modelValue"
         v-bind="{ type, placeholder, disabled }"
         @focus="onFocus"
         @input="onInput"
@@ -14,14 +14,16 @@ import type {
     InputEmits,
     InputTextProps,
     InputTextType,
-    InputTextModel,
+    InputValidation,
 } from "@/types";
+import { inputHelpers } from "@/runtime/utils/input";
 
 interface Emits extends InputEmits<string> {}
 
 interface Props extends InputTextProps {
     type?: InputTextType;
-    modelValue?: InputTextModel;
+    modelValue?: string;
+    validation?: InputValidation<string>;
     placeholder?: string;
     bordered?: boolean;
     disabled?: boolean;
@@ -31,28 +33,13 @@ const emit = defineEmits<Emits>();
 
 const props = withDefaults(defineProps<Props>(), {
     type: "text",
-    modelValue: () => ({
-        valid: null,
-        value: "",
-    }),
+    modelValue: "",
 });
 
-function onInput(event: any) {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        value: event.target.value,
-    });
-}
-
-function onFocus() {
-    emit("update:modelValue", {
-        ...props.modelValue,
-        valid: null,
-    });
-}
+const { onInput, onFocus, isValid } = inputHelpers(props, emit);
 
 const inputClass = computed(() => ({
     "input-bordered": props.bordered,
-    "input-error": props.modelValue.valid != null && !props.modelValue.valid,
+    "input-error": !isValid.value,
 }));
 </script>

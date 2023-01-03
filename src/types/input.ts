@@ -1,47 +1,46 @@
-export interface InputModel<T> {
-    value?: T;
-    valid?: boolean | null;
+export type InputValidator<T> = (value: T) => boolean;
+
+export interface InputValidation<T> {
+    valid: boolean | null;
+    validator?: InputValidator<T>;
+    error?: string;
 }
 
 export interface InputProps<T> {
-    modelValue?: InputModel<T>;
+    modelValue?: T;
+    validation?: InputValidation<T>;
     disabled?: boolean;
 }
 
 export interface InputEmits<T = any> {
-    (e: "update:modelValue", value: InputModel<T>): void;
+    (e: "update:modelValue", value: T): void;
 }
 
 export type InputTextType = "text" | "email" | "password";
 
-export interface InputTextModel extends InputModel<string> {}
-
 export interface InputTextProps extends InputProps<string> {
     type?: InputTextType;
-    modelValue?: InputTextModel;
+    modelValue?: string;
     placeholder?: string;
     bordered?: boolean;
 }
 
 export type InputCheckboxType = "checkbox" | "toggle";
 
-export interface InputCheckboxModel extends InputModel<boolean> {}
-
 export interface InputCheckboxProps extends InputProps<boolean> {
     type?: InputCheckboxType;
-    modelValue?: InputCheckboxModel;
+    modelValue?: boolean;
     bordered?: boolean;
 }
 
-export interface InputRadioModel extends InputModel<boolean> {}
-
 export interface InputRadioProps extends InputProps<boolean> {
-    modelValue?: InputRadioModel;
+    modelValue?: boolean;
 }
 
-export interface InputFileModel extends InputModel<File[]> {}
+export type InputFileType = "file" | "fileList" | "dataUrl";
 
-export interface InputFileProps extends InputProps<File[]> {
-    modelValue?: InputFileModel;
+export interface InputFileProps extends InputProps<FileList | File | string> {
+    type?: InputFileType;
+    modelValue?: FileList | File | string;
     bordered?: boolean;
 }
