@@ -44,17 +44,17 @@ async function onInputClick() {
     props.form.error = undefined;
 
     for (const inputKey in formInputs) {
-        const validation = formInputs[inputKey].validation;
-        if (validation && validation.validator) {
-            validation.valid = validation.validator(formInputs[inputKey].value);
+        const validator = formInputs[inputKey].validator;
+        if (validator) {
+            formInputs[inputKey].valid = validator(formInputs[inputKey].value);
         }
     }
 
     const inputs = Object.values(formInputs);
-    const firstInvalidInput = inputs.find((input) => !input.validation?.valid);
+    const firstInvalidInput = inputs.find((input) => !input.valid);
 
     if (firstInvalidInput) {
-        props.form.error = firstInvalidInput.validation?.error;
+        props.form.error = firstInvalidInput.error;
     } else {
         await submitForm();
     }

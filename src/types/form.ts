@@ -14,7 +14,6 @@ export interface FormButtonProps extends ButtonProps {
     form: FormProps;
 }
 
-export interface FormInput<T> {
+export interface FormInput<T> extends InputValidation<T> {
     value?: T;
-    validation?: InputValidation<T>;
 }
