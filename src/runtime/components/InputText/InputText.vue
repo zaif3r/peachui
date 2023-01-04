@@ -16,7 +16,7 @@ import type {
     InputTextType,
     InputValidation,
 } from "@/types";
-import { inputHelpers } from "@/runtime/utils/input";
+import { inputHelpers } from "../../utils/input";
 
 interface Emits extends InputEmits<string> {}
 

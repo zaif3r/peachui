@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { InputEmits, InputFileProps, InputFileType } from "@/types";
-import { inputHelpers } from "@/runtime/utils/input";
+import { inputHelpers } from "../../utils/input";
 
 interface Emits extends InputEmits<File | FileList | string> {}
 

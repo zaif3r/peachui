@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { InputEmits, InputTextProps, InputValidation } from "@/types";
-import { inputHelpers } from "@/runtime/utils/input";
+import { inputHelpers } from "../../utils/input";
 
 interface Emits extends InputEmits<string> {}
 
