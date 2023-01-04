@@ -1,6 +1,6 @@
 <template>
     <div class="rating">
-        <input type="radio" name="rating" class="rating-hidden" />
+        <input type="radio" :name="name" class="rating-hidden" />
         <input
             type="radio"
             :key="i"
