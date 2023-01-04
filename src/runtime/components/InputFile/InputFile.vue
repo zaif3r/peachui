@@ -9,17 +9,17 @@
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import type { InputEmits, InputFileProps, InputFileType, InputValidation, InputFile } from "@/types";
+import type { InputEmits, InputFileProps, InputFileType, InputValidation, InputFileModel } from "@/types";
 import { inputHelpers } from "../../utils/input";
 
-interface Emits extends InputEmits<InputFile> {}
+interface Emits extends InputEmits<InputFileModel> {}
 
 interface Props extends InputFileProps {
     type?: InputFileType;
-    modelValue?: InputFile;
+    modelValue?: InputFileModel;
     bordered?: boolean;
     disabled?: boolean;
-    validation?: InputValidation<InputFile>;
+    validation?: InputValidation<InputFileModel>;
 }
 
 const emit = defineEmits<Emits>();
