@@ -39,8 +39,15 @@ export interface InputRadioProps extends InputProps<boolean> {
 
 export type InputFileType = "file" | "fileList" | "dataUrl";
 
-export interface InputFileProps extends InputProps<FileList | File | string> {
+export interface InputFileProps extends InputProps<InputFile> {
     type?: InputFileType;
-    modelValue?: FileList | File | string;
+    modelValue?: InputFile;
     bordered?: boolean;
+}
+
+export type InputFile = FileList | File | FileDataUrl
+
+export interface FileDataUrl {
+    file: File;
+    dataUrl: string;
 }

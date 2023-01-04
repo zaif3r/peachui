@@ -9,17 +9,17 @@
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import type { InputEmits, InputFileProps, InputFileType, InputValidation } from "@/types";
+import type { InputEmits, InputFileProps, InputFileType, InputValidation, InputFile } from "@/types";
 import { inputHelpers } from "../../utils/input";
 
-interface Emits extends InputEmits<File | FileList | string> {}
+interface Emits extends InputEmits<InputFile> {}
 
 interface Props extends InputFileProps {
     type?: InputFileType;
-    modelValue?: File | FileList | string;
+    modelValue?: InputFile;
     bordered?: boolean;
     disabled?: boolean;
-    validation?: InputValidation<File | FileList | string>;
+    validation?: InputValidation<InputFile>;
 }
 
 const emit = defineEmits<Emits>();
@@ -49,7 +49,10 @@ function onInputFile(event: any) {
     if (props.type == "dataUrl") {
         const reader = new FileReader();
         reader.onload = (readerEvent) => {
-            updateValue(readerEvent.target?.result as string);
+            updateValue({
+                file: event.target.files[0],
+                dataUrl: readerEvent.target?.result as string,
+            });
         };
 
         return reader.readAsDataURL(event.target.files[0]);
