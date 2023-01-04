@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
     type: "file",
 });
 
-const { isValid } = inputHelpers(props, emit);
+const { isValid, updateValue } = inputHelpers(props, emit);
 
 const inputFileClass = computed(() => ({
     "file-input-bordered": props.bordered,
@@ -36,14 +36,20 @@ const inputFileClass = computed(() => ({
 }));
 
 function onInputFile(event: any) {
+    if (!event.target.files || event.target.files.length == 0) {
+        return updateValue(null as any);
+    }
+
     if (props.type == "file") {
-        return emit("update:modelValue", event.target.files[0]);
-    } else if (props.type == "fileList") {
-        return emit("update:modelValue", event.target.files);
-    } else if (props.type == "dataUrl") {
+        return updateValue(event.target.files[0]);
+    }
+    if (props.type == "fileList") {
+        return updateValue(event.target.files);
+    }
+    if (props.type == "dataUrl") {
         const reader = new FileReader();
-        reader.onload = (e) => {
-            emit("update:modelValue", e.target?.result as string);
+        reader.onload = (readerEvent) => {
+            updateValue(readerEvent.target?.result as string);
         };
 
         return reader.readAsDataURL(event.target.files[0]);
