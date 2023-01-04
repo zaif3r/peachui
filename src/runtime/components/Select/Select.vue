@@ -43,6 +43,6 @@ const { onInput, isValid } = inputHelpers(props, emit);
 
 const selectClass = computed(() => ({
     "select-bordered": props.bordered,
-    "select-error": !isValid,
+    "select-error": !isValid.value,
 }));
 </script>

@@ -47,6 +47,8 @@ async function onInputClick() {
         const validator = formInputs[inputKey].validator;
         if (validator) {
             formInputs[inputKey].valid = validator(formInputs[inputKey].value);
+        } else {
+            formInputs[inputKey].valid = true;
         }
     }
 
