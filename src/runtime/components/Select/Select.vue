@@ -18,6 +18,7 @@ import {
     InputSelectProps,
     InputEmits,
     SelectOption,
+    InputValidation,
 } from "@/types";
 import { computed } from "vue";
 import { inputHelpers } from "../../utils/input";
@@ -30,6 +31,7 @@ interface Props extends InputSelectProps {
     placeholder?: string;
     disabled?: boolean;
     bordered?: boolean;
+    validation?: InputValidation<string>;
 }
 
 const emit = defineEmits<Emits>();
