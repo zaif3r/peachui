@@ -38,7 +38,7 @@ async function onSubmit() {
 }
 
 function validateForm() {
-    for (const inputKey in validationKeys.value) {
+    for (const inputKey of validationKeys.value) {
         const validator = props.form[inputKey].validator!!;
         props.form[inputKey].valid = validator(props.form[inputKey].value);
     }
