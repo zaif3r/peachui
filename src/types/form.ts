@@ -1,17 +1,16 @@
 import { ButtonProps } from "./button";
 import { InputValidation } from "./input";
 
-export interface FormProps {
+export type FormState = {
     loading?: boolean;
     error?: string;
-    action?: () => Promise<void>;
-    inputs?: {
-        [key: string]: FormInput<any>;
-    };
+} & {
+    [key: string]: FormInput<any>;
 }
 
 export interface FormButtonProps extends ButtonProps {
-    form: FormProps;
+    form: FormState;
+    action?: (form: FormState) => Promise<void>;
 }
 
 export interface FormInput<T> extends InputValidation<T> {

@@ -1,5 +1,5 @@
 <template>
-    <Button v-bind="props" :loading="loading ?? form.loading" @click.stop="onInputClick">
+    <Button v-bind="props" :loading="loading ?? form.loading" @click.stop="onSubmit">
         <template #icon>
             <slot name="icon" />
         </template>
@@ -8,57 +8,57 @@
 </template>
 <script setup lang="ts">
 import Button from "../Button";
-import { FormProps, FormButtonProps } from "@/types";
+import { FormState, FormButtonProps } from "@/types";
+import { computed } from "vue"
 
 interface Props extends FormButtonProps {
-    form: FormProps;
+    form: FormState;
     active?: boolean;
     disabled?: boolean;
     animation?: boolean;
     loading?: boolean;
+    action?: (form: FormState) => Promise<void>;
 }
 
 const props = defineProps<Props>();
 
-async function submitForm() {
-    if (props.form.action) {
-        props.form.loading = true;
+const validationKeys = computed(() => Object.keys(props.form).filter((key) => {
+    return key != "error" && key != "loading" && props.form[key].validator
+}))
 
+async function onSubmit() {
+    props.form.loading = true;
+    props.form.error = undefined;
+
+    if (validateForm()) {
+        await submitForm();
+    }
+
+    props.form.loading = false;
+}
+
+function validateForm() {
+    for (const inputKey in validationKeys.value) {
+        const validator = props.form[inputKey].validator!!;
+        props.form[inputKey].valid = validator(props.form[inputKey].value);
+    }
+
+    const invalid = validationKeys.value.find((key) => !props.form[key].valid)
+
+    if (invalid) {
+        props.form.error = props.form[invalid].error ?? `Invalid ${invalid}`
+    }
+
+    return !invalid
+}
+
+async function submitForm() {
+    if (props.action) {
         try {
-            await props.form.action();
+            await props.action(props.form);
         } catch (error: any) {
             props.form.error = error.message;
         }
-
-        props.form.loading = false;
-    }
-}
-
-async function onInputClick() {
-    const formInputs = props.form.inputs;
-
-    if (!formInputs) {
-        return await submitForm();
-    }
-
-    props.form.error = undefined;
-
-    for (const inputKey in formInputs) {
-        const validator = formInputs[inputKey].validator;
-        if (validator) {
-            formInputs[inputKey].valid = validator(formInputs[inputKey].value);
-        } else {
-            formInputs[inputKey].valid = true;
-        }
-    }
-
-    const inputs = Object.values(formInputs);
-    const firstInvalidInput = inputs.find((input) => !input.valid);
-
-    if (firstInvalidInput) {
-        props.form.error = firstInvalidInput.error;
-    } else {
-        await submitForm();
     }
 }
 </script>
