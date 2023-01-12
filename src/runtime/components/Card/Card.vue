@@ -1,5 +1,5 @@
 <template>
-    <div class="card shadow-xl" :class="cardClass">
+    <div class="card" :class="cardClass">
         <figure v-if="image"><img :src="image" alt="card image" /></figure>
         <div class="card-body" :class="bodyClass">
             <h2 v-if="title || $slots.title" class="card-title">

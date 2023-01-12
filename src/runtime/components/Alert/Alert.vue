@@ -1,5 +1,5 @@
 <template>
-    <div class="alert shadow-lg">
+    <div class="alert">
         <div>
             <template v-if="$slots.icon">
                 <slot name="icon" />
