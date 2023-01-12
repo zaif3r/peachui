@@ -5,10 +5,9 @@
                 <slot name="icon" />
             </template>
             <div>
-                <slot>
-                    <h3>{{ title }}</h3>
-                    <p class="text-xs">{{ subtitle }}</p>
-                </slot>
+                <h3 v-if="title">{{ title }}</h3>
+                <p v-if="subtitle" class="text-xs">{{ subtitle }}</p>
+                <slot />
             </div>
         </div>
         <div v-if="$slots.actions" class="flex-none">
