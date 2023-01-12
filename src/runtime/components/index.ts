@@ -61,3 +61,5 @@ export { default as InputNumber } from "./InputNumber";
 
 export { default as Modal } from "./Modal";
 export { default as ModalButton } from "./ModalButton";
+
+export { default as Toast } from "./Toast";
