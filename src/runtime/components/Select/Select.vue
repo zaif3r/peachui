@@ -23,15 +23,15 @@ import {
 import { computed } from "vue";
 import { inputHelpers } from "../../utils/input";
 
-interface Emits extends InputEmits<string> {}
+interface Emits extends InputEmits<any> {}
 
 interface Props extends InputSelectProps {
-    modelValue?: string;
+    modelValue?: any;
     options?: SelectOption[];
     placeholder?: string;
     disabled?: boolean;
     bordered?: boolean;
-    validation?: InputValidation<string>;
+    validation?: InputValidation<any>;
 }
 
 const emit = defineEmits<Emits>();

@@ -1,13 +1,13 @@
 import { InputProps } from "./input";
 
-export interface InputSelectProps extends InputProps<string> {
-    modelValue?: string;
+export interface InputSelectProps extends InputProps<any> {
+    modelValue?: any;
     bordered?: boolean;
     options?: SelectOption[];
     placeholder?: string;
 }
 
 export interface SelectOption {
-    value: string;
+    value: any;
     label: string;
 }
