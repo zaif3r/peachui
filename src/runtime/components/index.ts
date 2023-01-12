@@ -56,6 +56,8 @@ export { default as InputCheckbox } from "./InputCheckbox";
 export { default as InputRadio } from "./InputRadio";
 export { default as InputFile } from "./InputFile";
 export { default as Select } from "./Select";
+export { default as InputDate } from "./InputDate";
+export { default as InputNumber } from "./InputNumber";
 
 export { default as Modal } from "./Modal";
 export { default as ModalButton } from "./ModalButton";

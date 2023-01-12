@@ -51,3 +51,14 @@ export interface FileDataUrl {
     file: File;
     dataUrl: string;
 }
+
+export interface InputNumberProps extends InputProps<number> {
+    modelValue?: number;
+    placeholder?: string;
+    bordered?: boolean;
+}
+
+export interface InputDateProps extends InputProps<Date> {
+    modelValue?: Date;
+    bordered?: boolean;
+}
