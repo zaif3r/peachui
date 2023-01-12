@@ -3,7 +3,7 @@
         <nav class="tabs" :class="{ 'tabs-boxed': boxed }">
             <slot />
         </nav>
-        <div v-if="$slots.content" class="tabs-content rounded-box bg-base-100">
+        <div v-if="$slots.content" class="tabs-content bg-base-100" :class="contentClass">
             <slot name="content" />
         </div>
     </div>
@@ -16,6 +16,7 @@ interface Props extends TabsProps {
     boxed?: boolean;
     lifted?: boolean;
     bordered?: boolean;
+    contentClass?: string;
 }
 
 const props = defineProps<Props>();
