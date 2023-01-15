@@ -1,3 +1,5 @@
+![Peach UI 🍑 Vue components](https://bafybeiffasj4wb7sgua5yaincmysw2j4hld6r36yabhuhffouh2uimta6q.ipfs.w3s.link/peachui01.jpg "Peach UI 🍑")
+
 # Peach UI 🍑
 
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/npm/l/buefy.svg?logo=github" /></a>
