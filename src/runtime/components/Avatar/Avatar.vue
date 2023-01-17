@@ -1,5 +1,5 @@
 <template>
-    <div class="avatar w-full" :class="avatarClass">
+    <div class="avatar" :class="avatarClass">
         <div v-bind="$attrs" :class="imageClass">
             <img v-if="src" :src="src" alt="avatar" />
             <span v-else>
