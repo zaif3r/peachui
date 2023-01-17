@@ -6,8 +6,3 @@
 <script lang="ts" setup>
 defineProps<{ vertical?: boolean }>();
 </script>
-<style>
-.stats {
-    @apply w-full;
-}
-</style>
