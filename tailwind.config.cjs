@@ -15,12 +15,12 @@ module.exports = {
       variants: ["hover"],
     },
     {
-      pattern: /(xxs|xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl)$/,
-      variants: ["responsive"],
+      pattern: /(xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl)$/,
+      variants: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"],
     },
     {
       pattern: /(top|bottom|left|right|start|end|center|middle|vertical|horizontal)$/,
-      variants: ["responsive"],
+      variants: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"],
     }
   ]
 }
