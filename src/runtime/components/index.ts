@@ -24,6 +24,7 @@ export { default as MenuTitle } from "./MenuTitle";
 export { default as MenuItem } from "./MenuItem";
 export { default as Dropdown } from "./Dropdown";
 
+export { default as Hero } from "./Hero";
 export { default as Badge } from "./Badge";
 export { default as Card } from "./Card";
 export { default as Avatar } from "./Avatar";
