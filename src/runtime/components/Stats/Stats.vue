@@ -1,5 +1,5 @@
 <template>
-    <div class="stats" :class="{ 'stats-vertical': vertical }">
+    <div class="stats" :class="vertical ? 'stats-vertical' : 'stats-horizontal'">
         <slot />
     </div>
 </template>
