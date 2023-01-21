@@ -15,9 +15,14 @@ const props =
         contentClass?: string;
     }>();
 
-const heroStyle = computed(() => ({
-    backgroundImage: `url(${props.bgImage})`,
-}));
+const heroStyle = computed(() => {
+    if (props.bgImage) {
+        return {
+            backgroundImage: `url(${props.bgImage})`,
+        };
+    }
+    return {};
+});
 
 const contentClasses = computed(() => ({
     "text-neutral-content": !!props.bgImage,
