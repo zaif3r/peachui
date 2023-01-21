@@ -20,6 +20,11 @@ interface Props extends FormButtonProps {
     action?: (form: FormState) => Promise<void>;
 }
 
+const emit = defineEmits<{
+    (event: "error", message: string): void;
+    (event: "error:input", inputKey: string): void;
+}>()
+
 const props = defineProps<Props>();
 
 const validationKeys = computed(() => Object.keys(props.form).filter((key) => {
@@ -46,6 +51,7 @@ function validateForm() {
     const invalid = validationKeys.value.find((key) => !props.form[key].valid)
 
     if (invalid) {
+        emit("error:input", invalid)
         props.form.error = props.form[invalid].error ?? `Invalid ${invalid}`
     }
 
@@ -57,6 +63,7 @@ async function submitForm() {
         try {
             await props.action(props.form);
         } catch (error: any) {
+            emit("error", error.message);
             props.form.error = error.message;
         }
     }
