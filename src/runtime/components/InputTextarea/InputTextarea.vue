@@ -3,7 +3,7 @@
         class="textarea"
         :value="modelValue"
         :class="textareaClass"
-        v-bind="{ placeholder, disabled }"
+        v-bind="{ id, placeholder, disabled }"
         @focus="onFocus"
         @input="onInput"
     />
@@ -16,6 +16,7 @@ import { inputHelpers } from "../../utils/input";
 interface Emits extends InputEmits<string> {}
 
 interface Props extends InputTextProps {
+    id?: string;
     placeholder?: string;
     bordered?: boolean;
     disabled?: boolean;

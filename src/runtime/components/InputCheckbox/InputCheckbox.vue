@@ -1,6 +1,7 @@
 <template>
     <input
         type="checkbox"
+        :id="id"
         :class="type"
         :checked="modelValue"
         :disabled="disabled"
@@ -17,6 +18,7 @@ import type {
 interface Emits extends InputEmits<boolean> {}
 
 interface Props extends InputCheckboxProps {
+    id?: string;
     type?: InputCheckboxType;
     modelValue?: boolean;
     bordered?: boolean;

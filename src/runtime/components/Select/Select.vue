@@ -1,5 +1,5 @@
 <template>
-    <select class="select" :class="selectClass" @input="onInput">
+    <select :id="id" class="select" :class="selectClass" @input="onInput">
         <option v-if="placeholder" :selected="!modelValue" disabled>
             {{ placeholder }}
         </option>
@@ -26,6 +26,7 @@ import { inputHelpers } from "../../utils/input";
 interface Emits extends InputEmits<any> {}
 
 interface Props extends InputSelectProps {
+    id?: string;
     modelValue?: any;
     options?: SelectOption[];
     placeholder?: string;

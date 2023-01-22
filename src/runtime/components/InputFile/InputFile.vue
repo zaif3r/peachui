@@ -2,6 +2,7 @@
     <input
         type="file"
         class="file-input"
+        :id="id"
         :class="inputFileClass"
         :disabled="disabled"
         @input="onInputFile"
@@ -15,6 +16,7 @@ import { inputHelpers } from "../../utils/input";
 interface Emits extends InputEmits<InputFileModel> {}
 
 interface Props extends InputFileProps {
+    id?: string;
     type?: InputFileType;
     modelValue?: InputFileModel;
     bordered?: boolean;

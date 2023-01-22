@@ -7,6 +7,7 @@ export interface InputValidation<T> {
 }
 
 export interface InputProps<T> {
+    id?: string;
     modelValue?: T;
     validation?: InputValidation<T>;
     disabled?: boolean;

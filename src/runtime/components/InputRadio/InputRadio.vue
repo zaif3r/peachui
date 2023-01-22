@@ -2,6 +2,7 @@
     <input
         type="radio"
         class="radio"
+        :id="id"
         :checked="modelValue"
         :disabled="disabled"
         @input="onChecked"
@@ -13,6 +14,7 @@ import type { InputEmits, InputRadioProps } from "@/types";
 interface Emits extends InputEmits<boolean> {}
 
 interface Props extends InputRadioProps {
+    id?: string;
     modelValue?: boolean;
     disabled?: boolean;
 }

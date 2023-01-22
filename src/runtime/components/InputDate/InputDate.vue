@@ -2,6 +2,7 @@
     <input
         class="input"
         type="date"
+        :id="id"
         :class="inputClass"
         :value="dateString"
         :disabled="disabled"
@@ -21,6 +22,7 @@ import { inputHelpers } from "../../utils/input";
 interface Emits extends InputEmits<Date> {}
 
 interface Props extends InputDateProps {
+    id?: string;
     modelValue?: Date;
     validation?: InputValidation<Date>;
     bordered?: boolean;

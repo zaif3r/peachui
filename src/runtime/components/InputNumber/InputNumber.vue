@@ -4,7 +4,7 @@
         type="number"
         :class="inputClass"
         :value="modelValue"
-        v-bind="{ placeholder, disabled }"
+        v-bind="{ id, placeholder, disabled }"
         @focus="onFocus"
         @input="onInput"
     />
@@ -21,6 +21,7 @@ import { inputHelpers } from "../../utils/input";
 interface Emits extends InputEmits<number> {}
 
 interface Props extends InputNumberProps {
+    id?: string;
     modelValue?: number;
     validation?: InputValidation<number>;
     placeholder?: string;

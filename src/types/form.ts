@@ -14,5 +14,6 @@ export interface FormButtonProps extends ButtonProps {
 }
 
 export interface FormInput<T> extends InputValidation<T> {
+    id?: string;
     value?: T;
 }
