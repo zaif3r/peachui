@@ -53,8 +53,11 @@ function validateForm() {
     const invalid = validationKeys.value.find((key) => !props.form[key].valid)
 
     if (invalid) {
-        emit("error:input", invalid)
-        props.form.error = props.form[invalid].error ?? `Invalid input ${invalid}`
+        emit("error:input", invalid);
+
+        const message = props.form[invalid].error ?? `Invalid input ${invalid}`;
+        emit("error", message)
+        props.form.error = message;
 
         if (props.scrollOnError) {
             scrollToInput(invalid)
