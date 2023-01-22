@@ -11,6 +11,7 @@ export type FormState = {
 export interface FormButtonProps extends ButtonProps {
     form: FormState;
     action?: (form: FormState) => void | Promise<void>;
+    scrollOnError?: boolean;
 }
 
 export interface FormInput<T> extends InputValidation<T> {

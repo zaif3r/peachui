@@ -18,6 +18,7 @@ interface Props extends FormButtonProps {
     animation?: boolean;
     loading?: boolean;
     action?: (form: FormState) => void | Promise<void>;
+    scrollOnError?: boolean;
 }
 
 const emit = defineEmits<{
@@ -52,7 +53,11 @@ function validateForm() {
 
     if (invalid) {
         emit("error:input", invalid)
-        props.form.error = props.form[invalid].error ?? `Invalid ${invalid}`
+        props.form.error = props.form[invalid].error ?? `Invalid input ${invalid}`
+
+        if (props.scrollOnError) {
+            scrollToInput(invalid)
+        }
     }
 
     return !invalid
@@ -68,6 +73,20 @@ async function submitForm() {
         } catch (error: any) {
             emit("error", error.message);
             props.form.error = error.message;
+        }
+    }
+}
+
+function scrollToInput(inputKey: keyof typeof props.form) {
+    const input = props.form[inputKey];
+    if (typeof input == "object" && "id" in input && input.id) {
+        const el = document.getElementById(input.id);
+        if (el) {
+            el.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "center",
+            });
         }
     }
 }
