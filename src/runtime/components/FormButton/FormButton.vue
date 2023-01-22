@@ -17,7 +17,7 @@ interface Props extends FormButtonProps {
     disabled?: boolean;
     animation?: boolean;
     loading?: boolean;
-    action?: (form: FormState) => Promise<void>;
+    action?: (form: FormState) => void | Promise<void>;
 }
 
 const emit = defineEmits<{
@@ -61,7 +61,10 @@ function validateForm() {
 async function submitForm() {
     if (props.action) {
         try {
-            await props.action(props.form);
+            const maybePromise = props.action(props.form);
+            if (maybePromise instanceof Promise) {
+                await maybePromise;
+            }
         } catch (error: any) {
             emit("error", error.message);
             props.form.error = error.message;

@@ -10,7 +10,7 @@ export type FormState = {
 
 export interface FormButtonProps extends ButtonProps {
     form: FormState;
-    action?: (form: FormState) => Promise<void>;
+    action?: (form: FormState) => void | Promise<void>;
 }
 
 export interface FormInput<T> extends InputValidation<T> {
