@@ -22,6 +22,7 @@ interface Props extends FormButtonProps {
 }
 
 const emit = defineEmits<{
+    (event: "submit", form: FormState): void;
     (event: "error", message: string): void;
     (event: "error:input", inputKey: string): void;
 }>()
@@ -70,6 +71,7 @@ async function submitForm() {
             if (maybePromise instanceof Promise) {
                 await maybePromise;
             }
+            emit("submit", props.form);
         } catch (error: any) {
             emit("error", error.message);
             props.form.error = error.message;
