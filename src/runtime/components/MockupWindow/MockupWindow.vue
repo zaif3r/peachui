@@ -1,5 +1,5 @@
 <template>
-    <div class="mockup-window shadow-lg">
+    <div class="mockup-window">
         <div v-if="title || $slots.title" class="mockup-window-title">
             <slot name="title">
                 <span class="font-semibold">{{ title }} </span>
