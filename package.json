@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.13",
+    "@nuxtjs/tailwindcss": "^6.4.1",
     "@vueuse/core": "^9.6.0",
     "daisyui": "^2.41.0",
     "swiper": "^8.4.5",
@@ -44,7 +45,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@nuxt/kit": "^3.0.0",
-    "@nuxtjs/tailwindcss": "^6.4.1",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-interactions": "^6.5.13",
