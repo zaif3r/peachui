@@ -1,31 +1,43 @@
-import { defineNuxtModule, createResolver, addComponent } from "@nuxt/kit";
+import { defineNuxtModule, createResolver, addComponent, installModule } from "@nuxt/kit";
 import * as components from "./runtime/components";
 
 export * from "./types";
 export * from "./runtime/components";
 
-export default defineNuxtModule({
+export interface ModuleOptions {
+    prefix?: string;
+    tailwind?: any;
+}
+
+export default defineNuxtModule<ModuleOptions>({
     meta: {
         name: "@zaifer/peachui",
         configKey: "peachui",
     },
-    setup(opt, nuxt) {
-        const prefix = opt.prefix?.toUppercase() || "P";
-
-        const distResolver = createResolver(import.meta.url);
+    defaults: {
+        prefix: "P",
+        tailwind: {},
+    },
+    async setup(opt, nuxt) {
         const srcResolver = createResolver(
             import.meta.url.replace("dist", "src/runtime")
         );
 
+        opt.tailwind.plugins = opt.tailwind.plugins || [];
+        opt.tailwind.plugins.push(require("daisyui"));
+
+        await installModule("@nuxtjs/tailwindcss", {
+            config: opt.tailwind,
+        });
+
         const componentNames = Object.keys(components);
         for (const name of componentNames) {
             addComponent({
-                name: prefix + name,
+                name: opt.prefix + name,
                 filePath: srcResolver.resolve("components", name),
             });
         }
 
-        nuxt.options.css.push(distResolver.resolve("style.css"));
         nuxt.options.build.transpile.push("@heroicons/vue");
     },
 });
