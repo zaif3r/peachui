@@ -26,6 +26,9 @@ export default defineNuxtModule<ModuleOptions>({
         opt.tailwind.plugins = opt.tailwind.plugins || [];
         opt.tailwind.plugins.push(require("daisyui"));
 
+        opt.tailwind.content = opt.tailwind.content || [];
+        opt.tailwind.content.push(srcResolver.resolve("components/**/*.vue"));
+
         await installModule("@nuxtjs/tailwindcss", {
             config: opt.tailwind,
         });
